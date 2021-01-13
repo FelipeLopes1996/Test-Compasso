@@ -1,7 +1,7 @@
 import apiScience from '../constants/api'
 
 export const getNotice = async () => {
-    return apiScience.get("/consumer/science")
+    return await apiScience.get("/consumer/science")
     .then(resp => resp.data);
 }
 

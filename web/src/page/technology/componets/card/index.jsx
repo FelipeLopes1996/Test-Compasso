@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Cont, Container, A, Title, WraTitle } from "./style";
-import { getNoticeTech } from "../../../../shared/service/service";
-import Card from "react-bootstrap/Card";
 
-const CardTech = () => {
+import { getNoticeTech } from "../../../../shared/service/service";
+
+import { Card, CardInfo, Img, CardTitle, CardFooter } from "./style";
+
+import Mod from "../../../../shared/components/modal";
+
+const Carde = () => {
   const [noticias, setNotice] = useState([]);
 
   const MethodNoticias = async () => {
@@ -14,24 +17,31 @@ const CardTech = () => {
     MethodNoticias();
   }, []);
 
-  return (
-    <Container>
-      <WraTitle>
-        <Title>choose your Technology news</Title>
-      </WraTitle>
+  useEffect(() => {
+    MethodNoticias();
+  }, []);
 
+  useEffect(() => {}, [noticias]);
+
+  return (
+    <>
       {noticias.map((notice, i) => (
-        <Cont key={i}>
-          <Card style={{ width: "30rem" }} border="success">
-            <A href={notice.url}>
-              <Card.Header>{notice.title}</Card.Header>
-            </A>
-            <Card.Body>{notice.abstract}</Card.Body>
-          </Card>
-        </Cont>
+        <Card>
+          <Img src={notice.multimedia.url} />
+
+          <CardTitle>{notice.title}</CardTitle>
+          <CardInfo>{notice.abstract}</CardInfo>
+          <CardFooter>
+            <Mod
+              title={notice.title}
+              url={notice.url}
+              abstract={notice.abstract}
+            />
+          </CardFooter>
+        </Card>
       ))}
-    </Container>
+    </>
   );
 };
 
-export default CardTech;
+export default Carde;

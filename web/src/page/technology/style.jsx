@@ -24,15 +24,11 @@ export const Link = styled(RouterLink)`
     }
 `
 
-export const Title = styled.h2`
-    display: flex;
-    font-size: 2rem;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    background-color: black;
-    padding: 1rem;
-    padding-left: 4rem;
-    margin: 0;
+export const WrapTitle = styled.div``;
 
-`
+export const Title = styled.h2`
+  display: flex;
+  justify-content: center;
+  color: #a8a8a8;
+  box-shadow: 0 50px 50px 0 rgba(0, 0, 0, 0.3);
+`;
