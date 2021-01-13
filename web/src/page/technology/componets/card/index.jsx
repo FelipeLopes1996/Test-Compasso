@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { getNoticeTech } from "../../../../shared/service/service";
 
-import { Card, CardInfo, Img, CardTitle, CardFooter } from "./style";
+import { Card, Img, CardTitle, CardFooter } from "./style";
 
 import Mod from "../../../../shared/components/modal";
 
@@ -30,7 +30,6 @@ const Carde = () => {
           <Img src={notice.multimedia.url} />
 
           <CardTitle>{notice.title}</CardTitle>
-          <CardInfo>{notice.abstract}</CardInfo>
           <CardFooter>
             <Mod
               title={notice.title}
